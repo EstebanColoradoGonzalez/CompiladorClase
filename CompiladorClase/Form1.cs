@@ -1,8 +1,8 @@
 namespace CompiladorClase
 {
-    public partial class Form1 : Form
+    public partial class Compilador : Form
     {
-        public Form1()
+        public Compilador()
         {
             InitializeComponent();
         }
