@@ -75,6 +75,7 @@ namespace Compilador
 
             textBoxResultado.Text = String.Empty;
             procesarTexto();
+
             foreach (Linea linea in cache.obtenerLineas())
             {
                 textBoxResultado.AddLine(linea.obtenerNumeroLinea() + " >> " + linea.obtenerContenido());

@@ -52,14 +52,14 @@ namespace Compilador.AnalizadorLexico
 
         private void leerSiguienteCaracter()
         {
-            if(CategoriaGramatical.FIN_ARCHIVO.Equals(lineaActual.obtenerContenido()))
+            if (lineaActual.esFinArchivo())
             {
                 caracterActual = lineaActual.obtenerContenido();
             }
-            else if(puntero > lineaActual.obtenerNumeroLinea())
+            else if(puntero > lineaActual.obtenerLongitudContenido())
             {
                 caracterActual = CategoriaGramatical.FIN_LINEA;
-                puntero = lineaActual.obtenerNumeroLinea() + 1;
+                puntero = lineaActual.obtenerLongitudContenido() + 1;
             }
             else
             {
@@ -78,10 +78,10 @@ namespace Compilador.AnalizadorLexico
 
         public ComponenteLexico devolverComponente()
         {
-            reiniciar();
             ComponenteLexico retorno = null;
+            reiniciar();
 
-            while(continuarAnalisis)
+            while (continuarAnalisis)
             {
                 if(estadoActual == 0)
                 {
@@ -296,6 +296,7 @@ namespace Compilador.AnalizadorLexico
             else if(esDigito())
             {
                 estadoActual = 1;
+                concatenar();
             }
             else if(esFinArchivo())
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Compilador.Transversal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,16 @@ namespace Compilador.Cache
         public String obtenerContenido()
         {
             return contenido;
+        }
+
+        public bool esFinArchivo()
+        {
+            return CategoriaGramatical.FIN_ARCHIVO.Equals(obtenerContenido());
+        }
+
+        public int obtenerLongitudContenido()
+        {
+            return obtenerContenido().Length;
         }
     }
 }
