@@ -37,6 +37,16 @@ namespace Compilador.Cache
             return CategoriaGramatical.FIN_ARCHIVO.Equals(obtenerContenido());
         }
 
+        public bool esFinLinea()
+        {
+            return CategoriaGramatical.FIN_LINEA.Equals(obtenerContenido());
+        }
+
+        public void aumentarLinea()
+        {
+            numeroLinea = numeroLinea + 1;
+        }
+
         public int obtenerLongitudContenido()
         {
             return obtenerContenido().Length;

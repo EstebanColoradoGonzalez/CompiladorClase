@@ -60,6 +60,7 @@ namespace Compilador.AnalizadorLexico
             {
                 caracterActual = CategoriaGramatical.FIN_LINEA;
                 puntero = lineaActual.obtenerLongitudContenido() + 1;
+                cargarNuevaLinea();
             }
             else
             {
@@ -317,7 +318,7 @@ namespace Compilador.AnalizadorLexico
         {
             leerSiguienteCaracter();
 
-            if(esLetra() || esDigito() || esGuionBajo() || esSignoPesos())
+            if (esLetra() || esDigito() || esGuionBajo() || esSignoPesos())
             {
                 estadoActual = 4;
                 concatenar();
